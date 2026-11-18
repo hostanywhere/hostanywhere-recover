@@ -29,11 +29,11 @@ That's it — pure Go, no CGO, builds on macOS, Windows, and Linux.
 ## What it understands
 
 - **HAE1** — the single-shot encrypted blob format (AES-256-GCM, per-file wrapped data-encryption key).
-- **HAE2** — the chunked streaming format used for large files (1 MB independently-authenticated AES-256-GCM chunks).
+- **HAE2** — the chunked streaming format used for large files (independently-authenticated AES-256-GCM chunks).
 - **Encrypted filenames** — the sealed metadata tokens stored in the index.
 - **Legacy blobs** — anything from before encryption shipped is copied through unchanged.
 
-The format details are documented in the source (`main.go`), and the test suite (`main_test.go`) independently re-implements the encryption side of both formats to verify this tool against the real wire formats.
+The full byte-level format, threat model, and known-answer test vectors are specified in [SPEC.md](SPEC.md); the test suite (`main_test.go`) independently re-implements the encryption side of both formats to verify this tool against the real wire formats.
 
 ## Security notes
 
